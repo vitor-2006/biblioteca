@@ -1,5 +1,7 @@
 import express from "express"
-import { estudante, idGen } from "./array.js"
+// import { estudante, idGen } from "./array.js"
+let estudante = []
+let idGen = 10000
 
 const routesEstudante = express.Router()
 

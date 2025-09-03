@@ -1,5 +1,7 @@
-export let livro = []
-export let idGen = 1000
+// let livro = []
+// let idGen = 1000
+
+// export { livro, idGen }
 
 
 

@@ -1,4 +1,4 @@
-let estudante = []
-let idGen = 10000
+//let estudante = []
+//let idGen = 10000
 
-export { estudante, idGen }
+//export { estudante, idGen }

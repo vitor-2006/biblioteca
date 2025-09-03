@@ -1,5 +1,8 @@
 import express from "express"
-import { livro, idGen } from "./array.js"
+// import { livro, idGen } from "./array.js"
+
+let livro = []
+let idGen = 1000
 
 const routesBook = express.Router()
 
