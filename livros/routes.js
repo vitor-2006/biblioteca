@@ -24,7 +24,7 @@ routesBook.post('/livros', (req, res) => {
         }
     idGen++
     livro.push(novoLivro)
-    return res.status(201).send('livro registrado!')
+    return res.status(200).send('livro registrado!')
 })
 
 routesBook.put('/livros/:id', (req, res) => {
@@ -36,7 +36,7 @@ routesBook.put('/livros/:id', (req, res) => {
             element.author = update.author
             element.year = update.year
             element.genre = update.genre
-            return res.status(201).send("livro editado com sucesso!")
+            return res.status(200).send("livro editado com sucesso!")
         }
     })
     return res.status(404).send("livro não encontrado!")
@@ -48,7 +48,7 @@ routesBook.delete('/livros/:id', (req, res) => {
 
     if(livrosFind !== -1){
         livro.splice(livrosFind, 1)
-        return res.status(201).send('livro removido!')
+        return res.status(200).send('livro removido!')
     }
     return res.status(404).send("livro não encontrado")
 })

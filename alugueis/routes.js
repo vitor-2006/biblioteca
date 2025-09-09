@@ -42,7 +42,7 @@ routesAluguel.post('/alugueis', (req, res) => {
         }
     idGen++
     aluguel.push(novoAluguel)
-    return res.status(201).send('Aluguel registrado!')
+    return res.status(200).send('Aluguel registrado!')
 })
 
 routesAluguel.put('/alugueis/:id', (req, res) => {
@@ -54,7 +54,7 @@ routesAluguel.put('/alugueis/:id', (req, res) => {
             element.idEstudante = update.idEstudante
             element.dataAluguel = update.dataAluguel
             element.dataDevolucao= update.dataDevolucao
-            return res.status(201).send("Aluguel editado com sucesso!")
+            return res.status(200).send("Aluguel editado com sucesso!")
         }
     })
     return res.status(404).send("Aluguel não encontrado!")
@@ -66,7 +66,7 @@ routesAluguel.delete('/alugueis/:id', (req, res) => {
 
     if(aluguelFind !== -1){
         aluguel.splice(aluguelFind, 1)
-        return res.status(201).send('Aluguel removido!')
+        return res.status(200).send('Aluguel removido!')
     }
     return res.status(404).send("Aluguel não encontrado")
 })

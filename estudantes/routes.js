@@ -23,7 +23,7 @@ routesEstudante.post('/estudantes', (req, res) => {
         }
     idGen++
     estudante.push(novoEstudante)
-    return res.status(201).send('Estudante registrado!')
+    return res.status(200).send('Estudante registrado!')
 })
 
 routesEstudante.put('/estudantes/:id', (req, res) => {
@@ -35,7 +35,7 @@ routesEstudante.put('/estudantes/:id', (req, res) => {
             element.matricula = update.matricula
             element.curso = update.curso
             element.ano = update.ano
-            return res.status(201).send("estudante editado com sucesso!")
+            return res.status(200).send("estudante editado com sucesso!")
         }
     })
     return res.status(404).send("estudante não encontrado!")
@@ -47,7 +47,7 @@ routesEstudante.delete('/estudantes/:id', (req, res) => {
 
     if(estudanteFind !== -1){
         estudante.splice(estudanteFind, 1)
-        return res.status(201).send('estudante removido!')
+        return res.status(200).send('estudante removido!')
     }
     return res.status(404).send("estudante não encontrado")
 })
