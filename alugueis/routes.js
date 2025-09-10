@@ -65,9 +65,14 @@ routesAluguel.post('/alugueis', (req, res) => {
         return res.status(404).send("estudante não encontrado")
     }
 
-    const dataFind = verificarData(req.body.dataAluguel)
-    if(!dataFind){
+    const dataAluguelFind = verificarData(req.body.dataAluguel)
+    if(!dataAluguelFind){
         return res.status(400).send("data de aluguel inválida!")
+    }
+
+    const dataDevolucaoFind = verificarData(req.body.dataDevolucao)
+    if(!dataDevolucaoFind) {
+        return res.status(400).send("data de devolução inválida!")
     }
 
     const novoAluguel = 
@@ -96,9 +101,14 @@ routesAluguel.put('/alugueis/:id', (req, res) => {
         return res.status(404).send("estudante não encontrado")
     }
 
-    const dataFind = verificarData(req.body.dataAluguel)
-    if(!dataFind){
-        res.status(400).send("data de aluguel inválida!")
+    const dataAluguelFind = verificarData(req.body.dataAluguel)
+    if(!dataAluguelFind){
+        return res.status(400).send("data de aluguel inválida!")
+    }
+
+    const dataDevolucaoFind = verificarData(req.body.dataDevolucao)
+    if(!dataDevolucaoFind) {
+        return res.status(400).send("data de devolução inválida!")
     }
 
     aluguel.find((element) => {
