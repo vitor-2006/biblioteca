@@ -21,6 +21,39 @@ function verificarID(id, arrayTodos){
     }
     return true
 }
+
+function verificarData(data) {
+    // Verifica se a data foi fornecida
+    if (!data) {
+        return false;
+    }
+
+    const dataArray = data.split("-");
+
+    // Garante que a data tem 3 partes (ano, mês, dia)
+    if (dataArray.length !== 3) {
+        return false;
+    }
+
+    const [ano, mes, dia] = dataArray;
+
+    // Valida o ano: deve ter 4 dígitos e ser um número
+    if (ano.length !== 4 || isNaN(parseInt(ano))) {
+        return false;
+    }
+    // Valida o mês: deve ter 1 ou 2 dígitos e ser um número
+    if (mes.length > 2 || mes.length === 0 || isNaN(parseInt(mes))) {
+        return false;
+    }
+    // Valida o dia: deve ter 1 ou 2 dígitos e ser um número
+    if (dia.length > 2 || dia.length === 0 || isNaN(parseInt(dia))) {
+        return false;
+    }
+
+    // Se todas as verificações passaram, a data tem um formato válido
+    return true;
+}
+
 routesAluguel.post('/alugueis', (req, res) => {
     const livroFind = verificarID(req.body.idLivro, livro)
     if(!livroFind){
@@ -30,6 +63,11 @@ routesAluguel.post('/alugueis', (req, res) => {
     const estudanteFind = verificarID(req.body.idEstudante, estudante)
     if(!estudanteFind){
         return res.status(404).send("estudante não encontrado")
+    }
+
+    const dataFind = verificarData(req.body.dataAluguel)
+    if(!dataFind){
+        return res.status(400).send("data de aluguel inválida!")
     }
 
     const novoAluguel = 
@@ -47,6 +85,22 @@ routesAluguel.post('/alugueis', (req, res) => {
 
 routesAluguel.put('/alugueis/:id', (req, res) => {
     const { id } = req.params
+
+    const livroFind = verificarID(req.body.idLivro, livro)
+    if(!livroFind){
+        return res.status(404).send("livro não encontrado")
+    }
+
+    const estudanteFind = verificarID(req.body.idEstudante, estudante)
+    if(!estudanteFind){
+        return res.status(404).send("estudante não encontrado")
+    }
+
+    const dataFind = verificarData(req.body.dataAluguel)
+    if(!dataFind){
+        res.status(400).send("data de aluguel inválida!")
+    }
+
     aluguel.find((element) => {
         if(element.id === parseInt(id)){
             let update = req.body
@@ -73,7 +127,6 @@ routesAluguel.delete('/alugueis/:id', (req, res) => {
 
 routesAluguel.get('/alugueis/livro/', (req, res) => {
     const { idLivro } = req.query
-    console.log(idLivro)
     if(idLivro.trim() === ""){
         return res.status(404).send("pesquisa nula!")
     }
@@ -90,7 +143,6 @@ routesAluguel.get('/alugueis/livro/', (req, res) => {
 
 routesAluguel.get('/alugueis/estudante/', (req, res) => {
     const { idEstudante } = req.query
-    console.log(idEstudante)
     if(idEstudante.trim() === ""){
         return res.status(404).send("pesquisa nula!")
     }
@@ -107,7 +159,6 @@ routesAluguel.get('/alugueis/estudante/', (req, res) => {
 
 routesAluguel.get('/alugueis/data/', (req, res) => {
     const { dataAluguel } = req.query
-    console.log(dataAluguel)
     if(dataAluguel.trim() === ""){
         return res.status(404).send("pesquisa nula!")
     }

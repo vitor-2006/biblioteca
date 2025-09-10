@@ -12,7 +12,55 @@ routesEstudante.get('/estudantes', (req, res) => {
     return res.status(201).send(estudante)
 })
 
+function verificarNome(nome) {
+    if(nome.length === 0 || !isNaN(nome)){
+        return false
+    }
+    return true
+}
+
+function verificarMatricula(matricula) {
+    if(matricula.length === 0 || isNaN(matricula)){
+        return false
+    }
+    return true
+}
+
+function verificarCurso(curso) {
+    if(curso.length === 0 || !isNaN(curso)){
+        return false
+    }
+    return true
+}
+
+function verificarAno(ano) {
+    if(ano.length === 0 || isNaN(ano)){
+        return false
+    }
+    return true
+}
+
 routesEstudante.post('/estudantes', (req, res) => {
+    const nomeFind = verificarNome(req.body.nome)
+    if(!nomeFind){
+        return res.status(400).send("nome inválido!")
+    }
+
+    const matriculaFind = verificarMatricula(req.body.matricula)
+    if(!matriculaFind){
+        return res.status(400).send("matrícula inválida!")
+    }
+
+    const cursoFind = verificarCurso(req.body.curso)
+    if(!cursoFind){
+        return res.status(400).send("curso inválido!")
+    }
+
+    const anoFind = verificarAno(req.body.ano)
+    if(!anoFind){
+        return res.status(400).send("ano inválido!")
+    }
+
     const novoEstudante = 
         {
         'nome': req.body.nome,
@@ -28,6 +76,27 @@ routesEstudante.post('/estudantes', (req, res) => {
 
 routesEstudante.put('/estudantes/:id', (req, res) => {
     const { id } = req.params
+
+    const nomeFind = verificarNome(req.body.nome)
+    if(!nomeFind){
+        return res.status(400).send("nome inválido!")
+    }
+
+    const matriculaFind = verificarMatricula(req.body.matricula)
+    if(!matriculaFind){
+        return res.status(400).send("matrícula inválida!")
+    }
+
+    const cursoFind = verificarCurso(req.body.curso)
+    if(!cursoFind){
+        return res.status(400).send("curso inválido!")
+    }
+
+    const anoFind = verificarAno(req.body.ano)
+    if(!anoFind){
+        return res.status(400).send("ano inválido!")
+    }
+
     estudante.find((element) => {
         if(element.id === parseInt(id)){
             let update = req.body
