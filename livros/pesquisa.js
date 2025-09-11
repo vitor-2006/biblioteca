@@ -5,7 +5,7 @@ function pesqPorTitle(req, res) {
     if(title.trim() === ""){
         return res.status(404).send("pesquisa nula!")
     }
-    const livroFind = livro.find((element) => {
+    const livroFind = livro.filter((element) => {
         if(element.title.toLowerCase().trim() === title.toLowerCase().trim()){
             return element
         }
@@ -21,7 +21,7 @@ function pesqPorAuthor(req, res) {
     if(author.trim() === ""){
         return res.status(404).send("pesquisa nula!")
     }
-    const livroFind = livro.find((element) => {
+    const livroFind = livro.filter((element) => {
         if(element.author.toLowerCase().trim() === author.toLowerCase().trim()){
             return element
         }
@@ -37,7 +37,7 @@ function pesqPorYear(req, res) {
     if(year.trim() === ""){
         return res.status(404).send("pesquisa nula!")
     }
-    const livroFind = livro.find((element) => {
+    const livroFind = livro.filter((element) => {
         if(parseInt(element.year) === parseInt(year)){
             return element
         }
@@ -53,7 +53,7 @@ function pesqPorGenre(req, res) {
     if(genre.trim() === ""){
         return res.status(404).send("pesquisa nula!")
     }
-    const livroFind = livro.find((element) => {
+    const livroFind = livro.filter((element) => {
         if(element.genre.toLowerCase().trim() === genre.toLowerCase().trim()){
             return element
         }

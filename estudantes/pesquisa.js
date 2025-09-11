@@ -5,7 +5,7 @@ function pesqPorNome(req, res) {
     if(nome.trim() === ""){
         return res.status(404).send("pesquisa nula!")
     }
-    const estudanteFind = estudante.find((element) => {
+    const estudanteFind = estudante.filter((element) => {
         if(element.nome.toLowerCase().trim() === nome.toLowerCase().trim()){
             return element
         }
@@ -37,7 +37,7 @@ function pesqPorCurso(req, res) {
     if(curso.trim() === ""){
         return res.status(404).send("pesquisa nula!")
     }
-    const estudanteFind = estudante.find((element) => {
+    const estudanteFind = estudante.filter((element) => {
         if(element.curso.toLowerCase().trim() === curso.toLowerCase().trim()){
             return element
         }

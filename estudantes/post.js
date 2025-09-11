@@ -22,6 +22,11 @@ export function postEstudante(req, res) {
         return res.status(400).send("ano inválido!")
     }
 
+    const matriculaRepetida = estudante.find((element) => element.matricula === req.body.matricula)
+    if(matriculaRepetida){
+        return res.status(400).send('matrícula já registrada!')
+    }
+
     const novoEstudante = 
         {
         'nome': req.body.nome,

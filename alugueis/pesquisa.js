@@ -5,7 +5,7 @@ function pesqPorIdLivro (req, res) {
     if(idLivro.trim() === ""){
         return res.status(404).send("pesquisa nula!")
     }
-    const aluguelFind = aluguel.find((element) => {
+    const aluguelFind = aluguel.filter((element) => {
         if(parseInt(element.idLivro) === parseInt(idLivro)){
             return element
         }
@@ -21,7 +21,7 @@ function pesqPorIdEstudante (req, res) {
     if(idEstudante.trim() === ""){
         return res.status(404).send("pesquisa nula!")
     }
-    const aluguelFind = aluguel.find((element) => {
+    const aluguelFind = aluguel.filter((element) => {
         if(parseInt(element.idEstudante) === parseInt(idEstudante)){
             return element
         }
@@ -37,7 +37,7 @@ function pesqPorDataAluguel (req, res) {
     if(dataAluguel.trim() === ""){
         return res.status(404).send("pesquisa nula!")
     }
-    const aluguelFind = aluguel.find((element) => {
+    const aluguelFind = aluguel.filter((element) => {
         if(element.dataAluguel.toLowerCase().trim() === dataAluguel.toLowerCase().trim()){
             return element
         }

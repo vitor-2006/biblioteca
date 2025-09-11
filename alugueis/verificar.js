@@ -6,7 +6,7 @@ function verificarID(id, arrayTodos){
     return true
 }
 
-function verificarData(data) {
+function verificarDataEstrutura(data) {
     // Verifica se a data foi fornecida
     if (!data) {
         return false;
@@ -38,4 +38,14 @@ function verificarData(data) {
     return true;
 }
 
-export { verificarData, verificarID }
+function verificarData(dataAluguel, dataLocacao) {
+    dataAluguel = new Date(dataAluguel)
+    dataLocacao = new Date(dataLocacao)
+
+    if(dataLocacao < dataAluguel){
+        return false
+    }
+    return true
+}
+
+export { verificarDataEstrutura, verificarData, verificarID }

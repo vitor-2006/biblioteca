@@ -2,10 +2,13 @@ import { aluguel } from "./array.js"
 
 export function deleteAluguel (req, res) {
     const { id } = req.params
-    const aluguelFind = aluguel.findIndex((element) => element.id == id)
+    const aluguelIndex = aluguel.findIndex((element) => element.id == id)
 
-    if(aluguelFind !== -1){
-        aluguel.splice(aluguelFind, 1)
+    if(aluguelIndex !== -1){
+        if(aluguel[aluguelIndex].dataDevolucao === ""){
+            return res.status(400).send("livro não devolvido!")
+        }
+        aluguel.splice(aluguelIndex, 1)
         return res.status(200).send('Aluguel removido!')
     }
     return res.status(404).send("Aluguel não encontrado")
