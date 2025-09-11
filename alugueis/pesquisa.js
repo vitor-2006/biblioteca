@@ -2,7 +2,6 @@ import { aluguel } from "./array.js"
 
 function pesqPorIdLivro (req, res) {
     const { idLivro } = req.query
-    console.log(idLivro)
     if(idLivro.trim() === ""){
         return res.status(404).send("pesquisa nula!")
     }
