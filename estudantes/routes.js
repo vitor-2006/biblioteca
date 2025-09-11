@@ -12,8 +12,8 @@ routesEstudante.post('/estudantes', postEstudante)
 routesEstudante.put('/estudantes/:id', putEstudante)
 routesEstudante.delete('/estudantes/:id', deleteEstudante)
 
-routesEstudante.get('/estudantes/', pesqPorNome)
-routesEstudante.get('/estudantes/', pesqPorMatricula)
-routesEstudante.get('/estudantes/', pesqPorCurso)
+routesEstudante.get('/estudantes/nome/', pesqPorNome)
+routesEstudante.get('/estudantes/matricula/', pesqPorMatricula)
+routesEstudante.get('/estudantes/curso/', pesqPorCurso)
 
 export { routesEstudante }

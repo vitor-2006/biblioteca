@@ -30,7 +30,7 @@ export function postAluguel (req, res){
         'idEstudante': req.body.idEstudante,
         'dataAluguel': req.body.dataAluguel,
         'dataDevolucao': req.body.dataDevolucao,
-        'id': idGen
+        'id': idGen.value
         }
     idGen.value++
     aluguel.push(novoAluguel)

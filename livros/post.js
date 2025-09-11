@@ -28,7 +28,7 @@ export function postLivro(req, res) {
         'author': req.body.author,
         'year': req.body.year,
         'genre': req.body.genre,
-        'id': idGen
+        'id': idGen.value
         }
     idGen.value++
     livro.push(novoLivro)

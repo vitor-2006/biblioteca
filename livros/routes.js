@@ -14,9 +14,9 @@ routesBook.post('/livros', postLivro)
 routesBook.put('/livros/:id', putLivro)
 routesBook.delete('/livros/:id', deleteLivro)
 
-routesBook.get('/livros/', pesqPorTitle)
-routesBook.get('/livros/', pesqPorAuthor)
-routesBook.get('/livros/', pesqPorYear)
-routesBook.get('/livros/', pesqPorGenre)
+routesBook.get('/livros/title/', pesqPorTitle)
+routesBook.get('/livros/author/', pesqPorAuthor)
+routesBook.get('/livros/year/', pesqPorYear)
+routesBook.get('/livros/genre/', pesqPorGenre)
 
 export { routesBook }

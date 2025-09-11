@@ -28,7 +28,7 @@ export function postEstudante(req, res) {
         'matricula': req.body.matricula,
         'curso': req.body.curso,
         'ano': req.body.ano,
-        'id': idGen
+        'id': idGen.value
         }
     idGen.value++
     estudante.push(novoEstudante)
