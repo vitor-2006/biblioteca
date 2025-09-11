@@ -1,5 +1,5 @@
-import { livro } from "./array"
-import { verificarGenre, verificarAuthor, verificarTitle, verificarAuthor, verificarYear } from "./verificar.js"
+import { livro } from "./array.js"
+import { verificarGenre, verificarTitle, verificarAuthor, verificarYear } from "./verificar.js"
 
 export function putLivro(req, res) {
     const { id } = req.params

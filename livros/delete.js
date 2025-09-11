@@ -1,4 +1,4 @@
-import { livro } from "./array"
+import { livro } from "./array.js"
 
 export function deleteLivro(req, res) {
     const { id } = req.params

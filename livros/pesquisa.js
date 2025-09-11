@@ -1,4 +1,4 @@
-import { livro } from "./array"
+import { livro } from "./array.js"
 
 function pesqPorTitle(req, res) {
     const { title } = req.query

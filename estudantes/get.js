@@ -1,4 +1,4 @@
-import { estudante } from "./routes.js";
+import { estudante } from "./array.js";
 
 export function getEstudante (req, res) {
     if(estudante.length === 0){

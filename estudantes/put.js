@@ -1,4 +1,4 @@
-import { estudante } from "./routes.js";
+import { estudante } from "./array.js";
 import { verificarAno, verificarCurso, verificarMatricula, verificarNome } from "./verificar.js";
 
 export function putEstudante (req, res) {

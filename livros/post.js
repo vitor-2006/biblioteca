@@ -1,5 +1,5 @@
-import { livro, idGen } from "./array"
-import { verificarGenre, verificarAuthor, verificarTitle, verificarAuthor, verificarYear } from "./verificar.js"
+import { livro, idGen } from "./array.js"
+import { verificarGenre, verificarTitle, verificarAuthor, verificarYear } from "./verificar.js"
 
 export function postLivro(req, res) {
     const titleFind = verificarTitle(req.body.title)

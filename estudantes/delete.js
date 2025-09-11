@@ -1,4 +1,4 @@
-import { estudante } from "./routes.js";
+import { estudante } from "./array.js";
 
 export function deleteEstudante(req, res) {
     const { id } = req.params
